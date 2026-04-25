@@ -31,7 +31,7 @@ export default defineConfig({
   root: "demo",
   resolve: {
     alias: {
-      "@scope/resizable": resolve(__dirname, "src/index.ts"),
+      "kd-resizable": resolve(__dirname, "src/index.ts"),
     },
   },
 

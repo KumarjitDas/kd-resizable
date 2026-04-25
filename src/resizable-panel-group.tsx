@@ -110,6 +110,7 @@ export function ResizablePanelGroup({
           ? containerRef.current.getBoundingClientRect().width
           : containerRef.current.getBoundingClientRect().height;
       if (containerSize === 0) return;
+      // startSizes captured at drag start; delta is always relative to origin — prevents drift.
       applyDelta(
         handleIndex,
         ((clientPos - startPos) / containerSize) * 100,

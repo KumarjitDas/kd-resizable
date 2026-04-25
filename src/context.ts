@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: BSD-3-Clause
+// Copyright (c) 2026, Kumarjit Das. All rights reserved.
+
 import { createContext, useContext } from 'react';
 import type { GroupContextValue } from './types';
 

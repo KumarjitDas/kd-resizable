@@ -21,7 +21,7 @@
     "erasableSyntaxOnly": true,
     "noFallthroughCasesInSwitch": true,
     "paths": {
-      "@scope/resizable": ["./src/index.ts"]
+      "kd-resizable": ["./src/index.ts"]
     }
   },
   "include": ["src", "demo"]

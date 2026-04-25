@@ -1,44 +1,9 @@
+// SPDX-License-Identifier: BSD-3-Clause
+// Copyright (c) 2026, Kumarjit Das. All rights reserved.
+
 import { useState, useCallback } from "react";
 import { useResizableGroup } from "./context";
 import type { ResizableHandleProps } from "./types";
-
-function GripIcon({ direction }: { direction: "horizontal" | "vertical" }) {
-  return direction === "horizontal" ? (
-    <svg
-      width="10"
-      height="14"
-      viewBox="0 0 10 14"
-      fill="currentColor"
-      aria-hidden="true"
-    >
-      <circle cx="3" cy="2" r="1.2" />
-      <circle cx="7" cy="2" r="1.2" />
-      <circle cx="3" cy="5" r="1.2" />
-      <circle cx="7" cy="5" r="1.2" />
-      <circle cx="3" cy="8" r="1.2" />
-      <circle cx="7" cy="8" r="1.2" />
-      <circle cx="3" cy="11" r="1.2" />
-      <circle cx="7" cy="11" r="1.2" />
-    </svg>
-  ) : (
-    <svg
-      width="14"
-      height="10"
-      viewBox="0 0 14 10"
-      fill="currentColor"
-      aria-hidden="true"
-    >
-      <circle cx="2" cy="3" r="1.2" />
-      <circle cx="5" cy="3" r="1.2" />
-      <circle cx="8" cy="3" r="1.2" />
-      <circle cx="11" cy="3" r="1.2" />
-      <circle cx="2" cy="7" r="1.2" />
-      <circle cx="5" cy="7" r="1.2" />
-      <circle cx="8" cy="7" r="1.2" />
-      <circle cx="11" cy="7" r="1.2" />
-    </svg>
-  );
-}
 
 export function ResizableHandle({
   withHandle = false,
@@ -81,6 +46,7 @@ export function ResizableHandle({
         document.removeEventListener("pointermove", onMove);
         document.removeEventListener("pointerup", onUp);
       };
+      // Document-level so drag continues even when the cursor leaves the handle element.
       document.addEventListener("pointermove", onMove);
       document.addEventListener("pointerup", onUp);
     },
@@ -120,9 +86,13 @@ export function ResizableHandle({
       onKeyDown={handleKeyDown}
     >
       {withHandle && (
-        <div className="kd-resizable-handle__grip">
-          <GripIcon direction={direction} />
-        </div>
+        <div
+          className="kd-resizable-handle__grip"
+          style={{
+            width: direction === "horizontal" ? "5px" : "25px",
+            height: direction === "horizontal" ? "25px" : "5px",
+          }}
+        />
       )}
     </div>
   );

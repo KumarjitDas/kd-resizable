@@ -1,20 +1,56 @@
 {
   "name": "kd-resizable",
-  "private": true,
-  "version": "0.0.1",
+  "version": "1.0.0",
+  "description": "Lightweight, accessible React resizable panel component — zero runtime dependencies.",
   "type": "module",
   "main": "./dist/kd-resizable-lib.umd.js",
   "module": "./dist/kd-resizable-lib.es.js",
   "types": "./dist/index.d.ts",
+  "sideEffects": [
+    "*.css"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/kd-resizable-lib.es.js",
+      "require": "./dist/kd-resizable-lib.umd.js"
+    },
+    "./style.css": "./dist/kd-resizable.css"
+  },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "tsc -p tsconfig.lib.json && vite build",
     "lint": "eslint .",
     "preview": "vite preview"
   },
-  "dependencies": {
-    "react": "^19.2.5",
-    "react-dom": "^19.2.5"
+  "keywords": [
+    "react",
+    "resizable",
+    "panel",
+    "split",
+    "layout",
+    "component",
+    "typescript"
+  ],
+  "author": "Kumarjit Das",
+  "license": "BSD-3-Clause",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/KumarjitDas/kd-resizable.git"
+  },
+  "homepage": "https://github.com/KumarjitDas/kd-resizable",
+  "bugs": {
+    "url": "https://github.com/KumarjitDas/kd-resizable/issues"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "peerDependencies": {
+    "react": ">=19",
+    "react-dom": ">=19"
   },
   "devDependencies": {
     "@babel/core": "^7.29.0",
@@ -30,22 +66,10 @@
     "eslint-plugin-react-hooks": "^7.1.1",
     "eslint-plugin-react-refresh": "^0.5.2",
     "globals": "^17.5.0",
+    "react": "^19.2.5",
+    "react-dom": "^19.2.5",
     "typescript": "~6.0.2",
     "typescript-eslint": "^8.58.2",
     "vite": "^8.0.10"
-  },
-  "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/kd-resizable-lib.es.js",
-      "require": "./dist/kd-resizable-lib.umd.js"
-    }
-  },
-  "files": [
-    "dist"
-  ],
-  "peerDependencies": {
-    "react": ">=19",
-    "react-dom": ">=19"
   }
 }
