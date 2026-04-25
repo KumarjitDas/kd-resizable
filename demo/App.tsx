@@ -1,4 +1,7 @@
-import { ResizablePanelGroup, ResizablePanel, ResizableHandle } from '@scope/resizable';
+// SPDX-License-Identifier: BSD-3-Clause
+// Copyright (c) 2026, Kumarjit Das. All rights reserved.
+
+import { ResizablePanelGroup, ResizablePanel, ResizableHandle } from 'kd-resizable';
 
 function Panel({ label, hint }: { label: string; hint?: string }) {
   return (

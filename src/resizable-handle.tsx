@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: BSD-3-Clause
+// Copyright (c) 2026, Kumarjit Das. All rights reserved.
+
 import { useState, useCallback } from "react";
 import { useResizableGroup } from "./context";
 import type { ResizableHandleProps } from "./types";
@@ -81,6 +84,7 @@ export function ResizableHandle({
         document.removeEventListener("pointermove", onMove);
         document.removeEventListener("pointerup", onUp);
       };
+      // Document-level so drag continues even when the cursor leaves the handle element.
       document.addEventListener("pointermove", onMove);
       document.addEventListener("pointerup", onUp);
     },
