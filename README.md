@@ -1,12 +1,12 @@
 # kd-resizable
 
-[![npm version](https://img.shields.io/npm/v/kd-resizable)](https://www.npmjs.com/package/kd-resizable)
-[![bundle size](https://img.shields.io/bundlephobia/minzip/kd-resizable)](https://bundlephobia.com/package/kd-resizable)
+[![npm version](https://img.shields.io/npm/v/kd-resizable)](https://www.npmjs.com/package/@kumarjitdas/kd-resizable)
+[![bundle size](https://img.shields.io/bundlephobia/minzip/kd-resizable)](https://bundlephobia.com/package/@kumarjitdas/kd-resizable)
 [![license](https://img.shields.io/npm/l/kd-resizable)](./LICENSE.txt)
 
 Lightweight, accessible React resizable panel component — zero runtime dependencies beyond React.
 
-**[Website](https://github.com/KumarjitDas/kd-resizable) · [Live Demo](https://kumarjitdas.github.io/kd-resizable) · [npm](https://www.npmjs.com/package/kd-resizable)**
+**[Website](https://github.com/KumarjitDas/kd-resizable) · [Live Demo](https://kumarjitdas.github.io/kd-resizable) · [npm](https://www.npmjs.com/package/@kumarjitdas/kd-resizable)**
 
 ---
 
