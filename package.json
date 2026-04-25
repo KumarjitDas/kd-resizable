@@ -1,12 +1,14 @@
 {
   "name": "kd-resizable",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Lightweight, accessible React resizable panel component — zero runtime dependencies.",
   "type": "module",
   "main": "./dist/kd-resizable-lib.umd.js",
   "module": "./dist/kd-resizable-lib.es.js",
   "types": "./dist/index.d.ts",
-  "sideEffects": ["*.css"],
+  "sideEffects": [
+    "*.css"
+  ],
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
