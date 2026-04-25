@@ -1,0 +1,109 @@
+/* ── Group ──────────────────────────────────────────────────────── */
+.kd-resizable-group {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.kd-resizable-group--horizontal { flex-direction: row; }
+.kd-resizable-group--vertical   { flex-direction: column; }
+
+/* ── Panel ──────────────────────────────────────────────────────── */
+.kd-resizable-panel {
+  position: relative;
+  /* prevent flex children from overflowing */
+  min-width: 0;
+  min-height: 0;
+}
+
+/* ── Handle ─────────────────────────────────────────────────────── */
+.kd-resizable-handle {
+  position: relative;
+  flex-shrink: 0;
+  flex-grow: 0;
+  background-color: var(--kd-handle-bg, hsl(220 13% 88%));
+  outline: none;
+  transition: background-color 120ms ease;
+  z-index: 1;
+}
+
+.kd-resizable-handle[data-direction='horizontal'] {
+  width: var(--kd-handle-size, 1px);
+  cursor: col-resize;
+}
+
+.kd-resizable-handle[data-direction='vertical'] {
+  height: var(--kd-handle-size, 1px);
+  cursor: row-resize;
+}
+
+/* Invisible wider hit area */
+.kd-resizable-handle::before {
+  content: '';
+  position: absolute;
+  z-index: 0;
+}
+
+.kd-resizable-handle[data-direction='horizontal']::before {
+  inset: 0;
+  left: -5px;
+  right: -5px;
+}
+
+.kd-resizable-handle[data-direction='vertical']::before {
+  inset: 0;
+  top: -5px;
+  bottom: -5px;
+}
+
+/* States */
+.kd-resizable-handle:hover,
+.kd-resizable-handle[data-dragging] {
+  background-color: var(--kd-handle-hover-bg, hsl(220 13% 65%));
+}
+
+.kd-resizable-handle:focus-visible {
+  outline: 2px solid var(--kd-focus-ring, hsl(220 90% 55%));
+  outline-offset: 1px;
+}
+
+/* ── Grip badge ──────────────────────────────────────────────────── */
+.kd-resizable-handle__grip {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  background-color: var(--kd-grip-bg, hsl(0 0% 100%));
+  border: 1px solid var(--kd-grip-border, hsl(220 13% 85%));
+  color: var(--kd-grip-color, hsl(220 13% 62%));
+  box-shadow: 0 1px 3px hsl(220 13% 50% / 0.12);
+  pointer-events: none;
+}
+
+.kd-resizable-handle:hover .kd-resizable-handle__grip,
+.kd-resizable-handle:focus-visible .kd-resizable-handle__grip,
+.kd-resizable-handle[data-dragging] .kd-resizable-handle__grip {
+  border-color: var(--kd-grip-hover-border, hsl(220 13% 60%));
+  color: var(--kd-grip-hover-color, hsl(220 13% 38%));
+}
+
+/* ── Dark mode ───────────────────────────────────────────────────── */
+@media (prefers-color-scheme: dark) {
+  .kd-resizable-handle {
+    --kd-handle-bg:        hsl(220 13% 22%);
+    --kd-handle-hover-bg:  hsl(220 13% 42%);
+    --kd-grip-bg:          hsl(220 13% 16%);
+    --kd-grip-border:      hsl(220 13% 28%);
+    --kd-grip-color:       hsl(220 13% 55%);
+    --kd-grip-hover-border: hsl(220 13% 48%);
+    --kd-grip-hover-color:  hsl(220 13% 72%);
+  }
+}
