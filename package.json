@@ -25,7 +25,7 @@
     "build": "tsc -p tsconfig.lib.json && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "publish-npm": "pnpm publish",
+    "publish-npm": "pnpm publish --access public",
     "publish-github": "pnpm publish --registry=https://npm.pkg.github.com"
   },
   "keywords": [
