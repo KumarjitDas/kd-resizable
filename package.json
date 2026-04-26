@@ -26,7 +26,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "publish-npm": "pnpm publish --access public",
-    "publish-github": "pnpm publish --registry=https://registry.npmjs.org/ --access public"
+    "publish-github": "pnpm publish --registry=https://npm.pkg.github.com"
   },
   "keywords": [
     "react",
