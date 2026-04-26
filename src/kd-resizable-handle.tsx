@@ -2,15 +2,15 @@
 // Copyright (c) 2026, Kumarjit Das. All rights reserved.
 
 import { useState, useCallback } from "react";
-import { useResizableGroup } from "./context";
-import type { ResizableHandleProps } from "./types";
+import { useKdResizableGroup } from "./context";
+import type { KdResizableHandleProps } from "./types";
 
-export function ResizableHandle({
+export function KdResizableHandle({
   withHandle = false,
   className,
   style,
   _handleIndex,
-}: ResizableHandleProps) {
+}: KdResizableHandleProps) {
   const {
     direction,
     sizes,
@@ -19,7 +19,7 @@ export function ResizableHandle({
     onHandleDrag,
     onHandleDragEnd,
     resizePanels,
-  } = useResizableGroup();
+  } = useKdResizableGroup();
 
   const [isDragging, setIsDragging] = useState(false);
 

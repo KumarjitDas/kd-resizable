@@ -1,13 +1,15 @@
 // SPDX-License-Identifier: BSD-3-Clause
 // Copyright (c) 2026, Kumarjit Das. All rights reserved.
 
-import { createContext, useContext } from 'react';
-import type { GroupContextValue } from './types';
+import { createContext, useContext } from "react";
+import type { KdGroupContextValue } from "./types";
 
-export const ResizableGroupContext = createContext<GroupContextValue | null>(null);
+export const KdResizableGroupContext = createContext<KdGroupContextValue | null>(
+  null,
+);
 
-export function useResizableGroup(): GroupContextValue {
-  const ctx = useContext(ResizableGroupContext);
-  if (!ctx) throw new Error('Must be used inside ResizablePanelGroup');
+export function useKdResizableGroup(): KdGroupContextValue {
+  const ctx = useContext(KdResizableGroupContext);
+  if (!ctx) throw new Error("Must be used inside KdResizablePanelGroup");
   return ctx;
 }

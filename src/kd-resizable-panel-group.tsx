@@ -7,39 +7,39 @@ import {
   cloneElement,
   type ReactElement,
 } from "react";
-import { ResizableGroupContext } from "./context";
-import { ResizablePanel } from "./resizable-panel";
-import { ResizableHandle } from "./resizable-handle";
+import { KdResizableGroupContext } from "./context";
+import { KdResizablePanel } from "./kd-resizable-panel";
+import { KdResizableHandle } from "./kd-resizable-handle";
 import type {
-  ResizablePanelGroupProps,
-  ResizablePanelProps,
-  ResizableHandleProps,
-  GroupContextValue,
-  PanelConfig,
+  KdResizablePanelGroupProps,
+  KdResizablePanelProps,
+  KdResizableHandleProps,
+  KdGroupContextValue,
+  KdPanelConfig,
 } from "./types";
 
 function clamp(value: number, min: number, max: number): number {
   return Math.max(min, Math.min(max, value));
 }
 
-export function ResizablePanelGroup({
+export function KdResizablePanelGroup({
   direction = "horizontal",
   className,
   style,
   children,
   onLayout,
-}: ResizablePanelGroupProps) {
+}: KdResizablePanelGroupProps) {
   const containerRef = useRef<HTMLDivElement>(null);
 
   // Derive panel metadata from children at render time
   const childArray = Children.toArray(children) as ReactElement[];
   const panelElements = childArray.filter(
-    (child) => isValidElement(child) && child.type === ResizablePanel,
+    (child) => isValidElement(child) && child.type === KdResizablePanel,
   );
 
-  const panelConfigs: PanelConfig[] = panelElements.map((child) => ({
-    minSize: (child.props as ResizablePanelProps).minSize ?? 0,
-    maxSize: (child.props as ResizablePanelProps).maxSize ?? 100,
+  const panelConfigs: KdPanelConfig[] = panelElements.map((child) => ({
+    minSize: (child.props as KdResizablePanelProps).minSize ?? 0,
+    maxSize: (child.props as KdResizablePanelProps).maxSize ?? 100,
   }));
 
   // Always-current ref so callbacks never capture stale config
@@ -51,7 +51,7 @@ export function ResizablePanelGroup({
       ? []
       : panelElements.map(
           (child) =>
-            (child.props as ResizablePanelProps).defaultSize ??
+            (child.props as KdResizablePanelProps).defaultSize ??
             100 / panelElements.length,
         ),
   );
@@ -137,18 +137,18 @@ export function ResizablePanelGroup({
   let handleIdx = 0;
   const enhancedChildren = Children.map(children, (child) => {
     if (!isValidElement(child)) return child;
-    if (child.type === ResizablePanel)
-      return cloneElement(child as ReactElement<ResizablePanelProps>, {
+    if (child.type === KdResizablePanel)
+      return cloneElement(child as ReactElement<KdResizablePanelProps>, {
         _panelIndex: panelIdx++,
       });
-    if (child.type === ResizableHandle)
-      return cloneElement(child as ReactElement<ResizableHandleProps>, {
+    if (child.type === KdResizableHandle)
+      return cloneElement(child as ReactElement<KdResizableHandleProps>, {
         _handleIndex: handleIdx++,
       });
     return child;
   });
 
-  const contextValue: GroupContextValue = {
+  const contextValue: KdGroupContextValue = {
     direction,
     sizes,
     panelConfigs,
@@ -160,7 +160,7 @@ export function ResizablePanelGroup({
   };
 
   return (
-    <ResizableGroupContext.Provider value={contextValue}>
+    <KdResizableGroupContext.Provider value={contextValue}>
       <div
         ref={containerRef}
         className={`kd-resizable-group kd-resizable-group--${direction}${className ? ` ${className}` : ""}`}
@@ -168,6 +168,6 @@ export function ResizablePanelGroup({
       >
         {enhancedChildren}
       </div>
-    </ResizableGroupContext.Provider>
+    </KdResizableGroupContext.Provider>
   );
 }

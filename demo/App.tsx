@@ -32,10 +32,7 @@ export default function App() {
         <section className="demo-section">
           <h2>Horizontal</h2>
           <div className="demo-frame">
-            <ResizablePanelGroup
-              direction="horizontal"
-              onLayout={(sizes) => console.log("Layout changed:", sizes)}
-            >
+            <ResizablePanelGroup direction="horizontal">
               <ResizablePanel defaultSize={30} minSize={15}>
                 <Panel label="Sidebar" hint="min 15%" />
               </ResizablePanel>

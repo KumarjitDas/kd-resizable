@@ -3,17 +3,17 @@
 
 import type { CSSProperties, ReactNode, RefObject } from 'react';
 
-export type Direction = 'horizontal' | 'vertical';
+export type KdDirection = 'horizontal' | 'vertical';
 
-export interface PanelConfig {
+export interface KdPanelConfig {
   minSize: number;
   maxSize: number;
 }
 
-export interface GroupContextValue {
-  direction: Direction;
+export interface KdGroupContextValue {
+  direction: KdDirection;
   sizes: number[];
-  panelConfigs: PanelConfig[];
+  panelConfigs: KdPanelConfig[];
   containerRef: RefObject<HTMLDivElement | null>;
   onHandleDragStart: (handleIndex: number, clientPos: number) => void;
   onHandleDrag: (clientPos: number) => void;
@@ -21,29 +21,29 @@ export interface GroupContextValue {
   resizePanels: (handleIndex: number, deltaPercent: number) => void;
 }
 
-export interface ResizablePanelGroupProps {
-  direction?: Direction;
+export interface KdResizablePanelGroupProps {
+  direction?: KdDirection;
   className?: string;
   style?: CSSProperties;
   children: ReactNode;
   onLayout?: (sizes: number[]) => void;
 }
 
-export interface ResizablePanelProps {
+export interface KdResizablePanelProps {
   defaultSize?: number;
   minSize?: number;
   maxSize?: number;
   className?: string;
   style?: CSSProperties;
   children?: ReactNode;
-  /** @internal injected by ResizablePanelGroup */
+  /** @internal injected by KdResizablePanelGroup */
   _panelIndex?: number;
 }
 
-export interface ResizableHandleProps {
+export interface KdResizableHandleProps {
   withHandle?: boolean;
   className?: string;
   style?: CSSProperties;
-  /** @internal injected by ResizablePanelGroup */
+  /** @internal injected by KdResizablePanelGroup */
   _handleIndex?: number;
 }

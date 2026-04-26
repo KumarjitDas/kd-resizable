@@ -12,7 +12,7 @@ export default defineConfig({
     outDir: resolve(__dirname, "dist"),
     lib: {
       entry: resolve(__dirname, "src/index.ts"),
-      name: "KDResizable",
+      name: "KdResizable",
       fileName: (format) => `kd-resizable-lib.${format}.js`,
     },
     rollupOptions: {
