@@ -4,15 +4,22 @@ import babel from "@rolldown/plugin-babel";
 import { resolve } from "path";
 
 export default defineConfig({
-  plugins: [react(), babel({ presets: [reactCompilerPreset()] })],
+  plugins: [
+    react(),
+    babel({
+      presets: [reactCompilerPreset()],
+    }),
+  ],
 
-  base: "/",
+  root: "demo",
 
   build: {
     outDir: resolve(__dirname, "dist"),
+    emptyOutDir: true,
     lib: {
       entry: resolve(__dirname, "src/index.ts"),
       name: "KdResizable",
+      formats: ["es", "umd"],
       fileName: (format) => `kd-resizable-lib.${format}.js`,
     },
     rollupOptions: {
@@ -21,14 +28,13 @@ export default defineConfig({
         globals: {
           react: "React",
           "react-dom": "ReactDOM",
-          "react/jsx-runtime": "ReactJSXRuntime",
+          "react/jsx-runtime": "jsxRuntime",
         },
       },
     },
     cssCodeSplit: false,
   },
 
-  root: "demo",
   resolve: {
     alias: {
       "kd-resizable": resolve(__dirname, "src/index.ts"),
@@ -38,5 +44,8 @@ export default defineConfig({
   server: {
     strictPort: true,
     port: 5173,
+    fs: {
+      allow: [".."],
+    },
   },
 });
