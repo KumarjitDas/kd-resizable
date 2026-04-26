@@ -1,6 +1,6 @@
 {
   "name": "@kumarjitdas/kd-resizable",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Lightweight, accessible React resizable panel component — zero runtime dependencies.",
   "type": "module",
   "main": "./dist/kd-resizable-lib.umd.js",
@@ -26,7 +26,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "publish-npm": "pnpm publish --access public",
-    "publish-github": "pnpm publish --registry=https://npm.pkg.github.com"
+    "publish-github": "pnpm publish --registry=https://registry.npmjs.org/ --access public"
   },
   "keywords": [
     "react",
