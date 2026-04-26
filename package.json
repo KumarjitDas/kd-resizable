@@ -7,7 +7,7 @@
   "module": "./dist/kd-resizable-lib.es.js",
   "types": "./dist/index.d.ts",
   "sideEffects": [
-    "*.css"
+    "**/*.css"
   ],
   "exports": {
     ".": {
@@ -22,7 +22,7 @@
   ],
   "scripts": {
     "dev": "vite",
-    "build": "tsc -p tsconfig.lib.json && vite build",
+    "build": "vite build && tsc -p tsconfig.lib.json",
     "lint": "eslint .",
     "preview": "vite preview",
     "publish-npm": "pnpm publish --access public",
@@ -43,7 +43,7 @@
     "type": "git",
     "url": "https://github.com/KumarjitDas/kd-resizable.git"
   },
-  "homepage": "https://github.com/KumarjitDas/kd-resizable",
+  "homepage": "https://github.com/KumarjitDas/#/projects/kd-resizable",
   "bugs": {
     "url": "https://github.com/KumarjitDas/kd-resizable/issues"
   },
@@ -72,6 +72,7 @@
     "react-dom": "^19.2.5",
     "typescript": "~6.0.2",
     "typescript-eslint": "^8.58.2",
-    "vite": "^8.0.10"
+    "vite": "^8.0.10",
+    "vite-plugin-dts": "^4.5.4"
   }
 }
