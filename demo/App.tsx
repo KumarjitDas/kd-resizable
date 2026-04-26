@@ -1,7 +1,11 @@
 // SPDX-License-Identifier: BSD-3-Clause
 // Copyright (c) 2026, Kumarjit Das. All rights reserved.
 
-import { ResizablePanelGroup, ResizablePanel, ResizableHandle } from 'kd-resizable';
+import {
+  ResizablePanelGroup,
+  ResizablePanel,
+  ResizableHandle,
+} from "kd-resizable";
 
 function Panel({ label, hint }: { label: string; hint?: string }) {
   return (
@@ -18,7 +22,7 @@ export default function App() {
       <header className="demo-header">
         <h1>kd-resizable</h1>
         <p>
-          Drag the handles to resize · Focus a handle and use arrow keys ·{' '}
+          Drag the handles to resize · Focus a handle and use arrow keys ·{" "}
           <code>withHandle</code> shows the grip badge
         </p>
       </header>
@@ -28,7 +32,10 @@ export default function App() {
         <section className="demo-section">
           <h2>Horizontal</h2>
           <div className="demo-frame">
-            <ResizablePanelGroup direction="horizontal">
+            <ResizablePanelGroup
+              direction="horizontal"
+              onLayout={(sizes) => console.log("Layout changed:", sizes)}
+            >
               <ResizablePanel defaultSize={30} minSize={15}>
                 <Panel label="Sidebar" hint="min 15%" />
               </ResizablePanel>

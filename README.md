@@ -1,7 +1,7 @@
 # kd-resizable
 
 [![npm version](https://img.shields.io/npm/v/kd-resizable)](https://www.npmjs.com/package/@kumarjitdas/kd-resizable)
-[![bundle size](https://img.shields.io/bundlephobia/minzip/kd-resizable)](https://bundlephobia.com/package/@kumarjitdas/kd-resizable)
+[![bundle size](https://img.shields.io/bundlephobia/minzip/kd-resizable)](https://bundlephobia.com/package/@kumarjitdas/kd-resizable@1.0.0)
 [![license](https://img.shields.io/npm/l/kd-resizable)](./LICENSE.txt)
 
 Lightweight, accessible React resizable panel component — zero runtime dependencies beyond React.
@@ -143,4 +143,10 @@ All browsers that support the [Pointer Events API](https://developer.mozilla.org
 
 ## License
 
-BSD-3-Clause © [Kumarjit Das](https://github.com/KumarjitDas)
+[BSD-3-Clause](https://img.shields.io/badge/license-BSD--3--Clause-blue.svg) © [Kumarjit Das](https://github.com/KumarjitDas)
+
+## Contact
+
+- Twitter: [@kumarjitdas1902](https://x.com/kumarjitdas1902)
+- LinkedIn: [Kumarjit Das](https://www.linkedin.com/in/kumarjit-das)
+- E-Mail: [kumarjitdas1999@gmail.com](mailto:kumarjitdas1999+github@gmail.com)
